@@ -7,11 +7,15 @@ var pacientes = document.querySelectorAll(".paciente")
 for(i = 0; i < pacientes.length; i++){
     
     var paciente = pacientes[i]
+
     var tdpeso = paciente.querySelector(".info-peso");
     var peso = tdpeso.textContent; 
+
     var tdaltura = paciente.querySelector(".info-altura");
     var altura = tdaltura.textContent;
+
     tdimc = paciente.querySelector(".info-imc")
+    
     console.log(paciente);
 
     var pesoehvalido = true;
@@ -33,10 +37,16 @@ for(i = 0; i < pacientes.length; i++){
     }
 
     if(pesoehvalido == true && alturaehvalida == true){
-        var imc = peso / (altura * altura)
+        var imc = calcularImc(peso, altura);
         console.log(imc)
-        
-        tdimc.textContent = imc.toFixed(2);
     }
+
+}
+
+function calcularImc(peso, altura){
+    var imc = 0;
+    imc = peso / (altura * altura)
+
+    return imc.toFixed(2);
 
 }
